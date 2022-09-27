@@ -4,6 +4,11 @@ import Navbar from './components/Navbar';
 import Textform from './components/Textform';
 import React, { useState } from 'react'
 import Alert from './components/Alert';
+import {
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
 
 function App(){
   const [mode,setMode] = useState('light')
@@ -37,8 +42,16 @@ function App(){
 <>
 <Navbar title="Text Editor" mode={mode} toggleMode={toggleMode}/>
 <Alert alert={alert}></Alert>
+<Routes>
+        <Route path="/" element={
 <Textform name="Enter Text" showAlert={showAlert} mode={mode} />
-<About/>
+                                 } />
+        <Route path="/about" element={<About />} />
+</Routes>
+{/*   
+<Textform name="Enter Text" showAlert={showAlert} mode={mode} />
+<About />
+*/}
 </>
 );
 }
